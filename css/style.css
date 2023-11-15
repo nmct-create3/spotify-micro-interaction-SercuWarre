@@ -7,6 +7,7 @@
     --spotify-white: #ffffff;
     --spotify-grey: #b3b3b3;
     --spotify-darkGrey: #222222;
+    font-family: 'Manrope', sans-serif;
 }
 
 /* reset */
@@ -27,11 +28,28 @@ svg {
 
 /* global page styles */
 
-html {}
+html {
+    color: var(--spotify-white);
+    border-radius: 7px;
+    font-size: 16px;
+}
 
 /* center everything */
 
-body {}
+body {
+
+        margin: 0;
+        padding: 0;
+        font-family: 'Manrope', sans-serif;
+        background-color: var(--spotify-black);
+        display: grid;
+            place-items: center;
+            height: 100vh;
+    
+    
+
+
+}
 
 /*
     Object: Button reset
@@ -69,6 +87,105 @@ body {}
 /*
     Album
 */
+.album {
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    background: var(--spotify-darkGrey);
+}
+
+.album__img {
+    /* margin-bottom: 10px; */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.album__header {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 2fr 2rem;
+    grid-template-rows: auto auto;
+
+}
+
+.album__title {
+    
+    grid-column: 1;
+    grid-row: 1;
+    margin-bottom: 5px;
+}
+
+.album__action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.album__artist{
+    grid-row: 2;
+
+}
+.album__action {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-container {
+    display: grid;
+    gap: 10px;
+    width: 50px;
+    /* Adjust the gap based on your design */
+    grid-template-areas: "icon-check";
+}
+
+.toggle__icon {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    transition: opacity 0.5s var(--ease-1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);    ;
+
+    /* Use your preferred easing function */
+}
+
+.toggle__icon.icon--add {
+    grid-area: icon-check;
+}
+
+.toggle__icon.icon--check {
+    grid-area: icon-check;
+    opacity: 0;
+    /* Initially hide the check icon */
+    transform: rotate(25deg);
+    /* Initially rotate the check icon */
+    transition-delay: 0.1s;
+    /* Add a slight delay for a staggered effect */
+    color: var(--spotify-green);
+}
+
+/* Add styles for the "added" class */
+.album__action.added .toggle__icon.icon--add {
+    opacity: 0;
+    /* Hide the add icon when "added" class is present */
+    transform: rotate(-25deg);
+    /* Rotate when "added" class is present */
+}
+
+.album__action.added .toggle__icon.icon--check {
+    color: var(--spotify-green);
+    opacity: 1;
+    /* Show the check icon when "added" class is present */
+    transform: rotate(0deg);
+    /* Reset rotation when "added" class is present */
+}
+
 
 /*
     Utitlities
